@@ -21,7 +21,7 @@
       "tool.songhunter": "find songs from any link",
       "tool.downloadanyvideo": "download videos from any link",
       "tool.portfolio": "services, projects, and contact",
-      "tool.agendar": "free discovery call",
+      "tool.leads": "prospecting and sales intelligence",
       "manifesto.text":
         "Wired Layer Co. builds software end to end: network, servers, APIs, interfaces, and product. Every project is a stack — and every layer has to stand on its own for the whole to work.",
       "footer.connected": "you are connected",
@@ -45,7 +45,7 @@
       "tool.songhunter": "identificação de músicas por link",
       "tool.downloadanyvideo": "baixe vídeos de qualquer link",
       "tool.portfolio": "serviços, projetos e contato",
-      "tool.agendar": "reunião de diagnóstico gratuita",
+      "tool.leads": "prospecção e inteligência comercial",
       "manifesto.text":
         "A Wired Layer Co. constrói software de ponta a ponta: rede, servidores, APIs, interfaces e produto. Cada projeto é uma pilha — e cada camada precisa se sustentar sozinha para o conjunto funcionar.",
       "footer.connected": "você está conectado",
