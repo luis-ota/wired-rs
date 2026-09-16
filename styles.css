@@ -433,7 +433,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .camada {
   display: grid;
-  grid-template-columns: auto auto 1fr auto;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 16px;
   padding: 18px 20px;
@@ -475,8 +475,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   color: var(--creme);
 }
 
-.camada-info { display: flex; flex-direction: column; gap: 2px; }
-.camada-nome { font-weight: 800; font-size: 1.02rem; }
+.camada-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.camada-nome { font-weight: 800; font-size: 1.02rem; overflow-wrap: anywhere; }
 .camada-desc { font-size: 0.88rem; color: var(--indigo-suave); }
 .camada:hover .camada-desc { color: var(--periwinkle-claro); }
 
@@ -665,9 +665,18 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .acoes { flex-direction: column; align-self: stretch; width: 100%; }
   .acoes .btn { justify-content: center; }
   .folha { padding: 72px 0; }
-  .camada { grid-template-columns: auto 1fr auto; }
+  .camada { grid-template-columns: auto minmax(0, 1fr) auto; }
   .camada-idx { display: none; }
   .rodape-linha { justify-content: center; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .camada { padding: 14px 16px; gap: 12px; }
+  .camada-icone { width: 36px; height: 36px; border-radius: 10px; }
+  .camada-icone svg { width: 19px; height: 19px; }
+  .camada-nome { font-size: 0.95rem; }
+  .camada-desc { font-size: 0.82rem; }
+  .camada-acesso { font-size: 0.74rem; }
 }
 
 @media (max-width: 480px) {
