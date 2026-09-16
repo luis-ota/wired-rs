@@ -428,7 +428,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 @media (min-width: 780px) {
   .pilha { grid-template-columns: 1fr 1fr; }
-  .camada:last-child { grid-column: 1 / -1; }
+  .camada:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
 .camada {

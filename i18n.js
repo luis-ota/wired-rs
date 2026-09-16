@@ -26,6 +26,7 @@
       "tool.downloadanyvideo": "download videos from any link",
       "tool.portfolio": "services, projects, and contact",
       "tool.leads": "prospecting and sales intelligence",
+      "tool.swaptop": "linux swap monitor, in the terminal",
       "manifesto.text":
         "wired layer co. builds software end to end: network, servers, apis, interfaces, and product. every project is a stack, and every layer has to stand on its own for the whole to work.",
       "footer.connected": "you are connected",
@@ -54,6 +55,7 @@
       "tool.downloadanyvideo": "baixe vídeos de qualquer link",
       "tool.portfolio": "serviços, projetos e contato",
       "tool.leads": "prospecção e inteligência comercial",
+      "tool.swaptop": "monitor de swap do linux, no terminal",
       "manifesto.text":
         "a wired layer co. constrói software de ponta a ponta: rede, servidores, apis, interfaces e produto. cada projeto é uma pilha, e cada camada precisa se sustentar sozinha para o conjunto funcionar.",
       "footer.connected": "você está conectado",
