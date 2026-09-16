@@ -17,7 +17,7 @@
   --raio-pill: 999px;
   --fonte: "Sora", system-ui, sans-serif;
   --script: "Yellowtail", cursive;
-  --limite: clamp(1080px, 63vw, 1300px);
+  --limite: clamp(1080px, 65vw, 1440px);
   --rede-linha: rgba(42, 42, 140, 0.13);
   --rede-no: rgba(42, 42, 140, 0.5);
   --rede-alerta: rgba(31, 31, 110, 0.75);
@@ -33,7 +33,7 @@ html[data-protocolo="7"] {
 
 html { scroll-behavior: smooth; }
 
-html { font-size: clamp(16px, 13px + 0.24vw, 19.5px); }
+html { font-size: clamp(16px, 12.5px + 0.28vw, 22px); }
 
 body {
   font-family: var(--fonte);
