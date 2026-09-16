@@ -113,17 +113,16 @@
   function paleta() {
     var p7 = document.documentElement.dataset.protocolo === "7";
     if (paletaAtual && paletaAtual.p7 === p7) return paletaAtual.cores;
-    var cores = p7
-      ? {
-          linha: "rgba(255, 95, 86, 0.2)",
-          no: "rgba(255, 95, 86, 0.8)",
-          alerta: "rgba(255, 255, 255, 0.85)"
-        }
-      : {
-          linha: "rgba(141, 255, 184, 0.16)",
-          no: "rgba(141, 255, 184, 0.75)",
-          alerta: "rgba(255, 95, 86, 0.85)"
-        };
+    var estilos = getComputedStyle(document.documentElement);
+    var leitura = function (nome, reserva) {
+      var valor = estilos.getPropertyValue(nome).trim();
+      return valor || reserva;
+    };
+    var cores = {
+      linha: leitura("--rede-linha", "rgba(42, 42, 140, 0.13)"),
+      no: leitura("--rede-no", "rgba(42, 42, 140, 0.5)"),
+      alerta: leitura("--rede-alerta", "rgba(31, 31, 110, 0.75)")
+    };
     paletaAtual = { p7: p7, cores: cores };
     return cores;
   }

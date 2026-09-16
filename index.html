@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>wired.rs · Wired Layer Co.</title>
-  <meta name="description" content="Wired Layer Co. — tools, custom software, and infrastructure. Present day, present time.">
-  <meta name="author" content="Wired Layer Co.">
+  <title>wired.rs · wired layer co.</title>
+  <meta name="description" content="wired layer co. · tools, custom software, and infrastructure. present day, present time.">
+  <meta name="author" content="wired layer co.">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#060807">
-  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#f4f1ea">
+  <meta name="color-scheme" content="light">
   <link rel="canonical" href="https://wired.rs/">
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Wired Layer Co.">
+  <meta property="og:site_name" content="wired layer co.">
   <meta property="og:url" content="https://wired.rs/">
-  <meta property="og:title" content="wired.rs · Wired Layer Co.">
-  <meta property="og:description" content="Tools, custom software, and infrastructure. Present day, present time.">
+  <meta property="og:title" content="wired.rs · wired layer co.">
+  <meta property="og:description" content="tools, custom software, and infrastructure. present day, present time.">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:image" content="https://wired.rs/icon-512.png">
@@ -58,168 +58,200 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=DotGothic16&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Yellowtail&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
-<body>
+<body id="topo">
 
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="vinheta" aria-hidden="true"></div>
+  <svg class="simbolos" aria-hidden="true" focusable="false">
+    <symbol id="faisca" viewBox="0 0 16 16"><path d="M8 0c.7 4.7 2.6 6.6 8 8-5.4 1.4-7.3 3.3-8 8-.7-4.7-2.6-6.6-8-8 5.4-1.4 7.3-3.3 8-8z" fill="currentColor"/></symbol>
+    <symbol id="ponto" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.4" fill="currentColor"/></symbol>
+    <symbol id="mais" viewBox="0 0 16 16"><path d="M6.9 0h2.2v6.9H16v2.2H9.1V16H6.9V9.1H0V6.9h6.9z" fill="currentColor"/></symbol>
+    <symbol id="losango" viewBox="0 0 16 16"><path d="M8 0c.7 4.7 2.6 6.6 8 8-5.4 1.4-7.3 3.3-8 8-.7-4.7-2.6-6.6-8-8 5.4-1.4 7.3-3.3 8-8z" fill="currentColor" transform="rotate(45 8 8)"/></symbol>
+    <symbol id="estrela" viewBox="0 0 16 16"><path d="M8 0l1.9 6.1L16 8l-6.1 1.9L8 16l-1.9-6.1L0 8l6.1-1.9z" fill="currentColor"/></symbol>
+    <symbol id="quadradinho" viewBox="0 0 16 16"><path d="M1.6 1.6h3.6v3.6H1.6zM6.2 1.6h3.6v3.6H6.2zM10.8 1.6h3.6v3.6h-3.6zM1.6 6.2h3.6v3.6H1.6zM6.2 6.2h3.6v3.6H6.2zM10.8 6.2h3.6v3.6h-3.6zM1.6 10.8h3.6v3.6H1.6zM6.2 10.8h3.6v3.6H6.2zM10.8 10.8h3.6v3.6h-3.6z" fill="currentColor"/></symbol>
+    <symbol id="tracejar" viewBox="0 0 16 16"><path d="M0 4.9h6.3v2.4H0zM9.7 4.9H16v2.4H9.7zM4.9 10.6h6.2v2.4H4.9z" fill="currentColor"/></symbol>
+  </svg>
 
-  <header class="hud">
-    <div class="hud-linha">
-      <span class="hud-marca">
-        <span class="led" aria-hidden="true"></span>
-        WIRED LAYER CO.
-      </span>
+  <a class="pular" href="#camadas" data-i18n="pular">skip to the layers</a>
+
+  <header class="cabeca">
+    <div class="limite cabeca-linha">
+      <a class="marca" href="#topo"><span class="marca-selo" aria-hidden="true">w</span> wired layer co.</a>
       <span class="hud-dados" aria-hidden="true">
         <span class="hud-item">protocol 7</span>
         <span class="hud-sep">/</span>
         <span class="hud-item" id="relogio">--:--:--</span>
         <span class="hud-sep">/</span>
-        <span class="hud-item">seq: <span id="seq">____</span></span>
+        <span class="hud-item">seq <span id="seq">____</span></span>
       </span>
-      <div class="lang-switch" role="group" data-i18n-aria="lang.aria" aria-label="Language">
-        <button type="button" class="lang-opcao" data-lang="en" aria-pressed="true" lang="en">EN</button>
-        <span class="lang-sep" aria-hidden="true">/</span>
-        <button type="button" class="lang-opcao" data-lang="pt" aria-pressed="false" lang="pt-BR">PT</button>
+      <div class="idioma" role="group" data-i18n-aria="lang.aria" aria-label="Language">
+        <button type="button" class="idioma-opcao" data-lang="en" aria-pressed="true" lang="en">en</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" class="idioma-opcao" data-lang="pt" aria-pressed="false" lang="pt-BR">pt</button>
       </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <canvas id="rede" aria-hidden="true"></canvas>
+  <main id="conteudo">
 
-      <div class="hero-conteudo">
-        <p class="kicker">
+    <section class="cartaz">
+      <canvas id="rede" aria-hidden="true"></canvas>
+      <img class="fundo fundo-abstrato" src="dados-abstrato.svg?v=3" alt="" aria-hidden="true">
+      <div class="faiscas" aria-hidden="true">
+        <span class="cintila" style="--x:8.5%;--y:26.5%;--t:13px;--atraso:1.24s;--dur:3.62s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
+        <span class="cintila" style="--x:16.2%;--y:74.5%;--t:9px;--atraso:2.87s;--dur:4.05s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#ponto"/></svg></span>
+        <span class="cintila" style="--x:27.8%;--y:14.2%;--t:11px;--atraso:0.42s;--dur:3.31s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#estrela"/></svg></span>
+        <span class="cintila" style="--x:71.5%;--y:18.5%;--t:16px;--atraso:3.56s;--dur:3.88s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
+        <span class="cintila" style="--x:83.2%;--y:37.8%;--t:9px;--atraso:1.93s;--dur:4.22s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#losango"/></svg></span>
+        <span class="cintila" style="--x:90.6%;--y:70.4%;--t:13px;--atraso:0.71s;--dur:2.94s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
+        <span class="cintila" style="--x:63.4%;--y:82.5%;--t:11px;--atraso:2.35s;--dur:3.47s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#mais"/></svg></span>
+        <span class="cintila" style="--x:38.7%;--y:88.4%;--t:9px;--atraso:3.98s;--dur:4.16s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
+        <span class="cintila" style="--x:47.2%;--y:9.8%;--t:9px;--atraso:1.55s;--dur:3.73s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#ponto"/></svg></span>
+        <span class="cintila" style="--x:6.4%;--y:52.6%;--t:11px;--atraso:2.68s;--dur:3.19s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#quadradinho"/></svg></span>
+      </div>
+
+      <div class="limite cartaz-conteudo">
+        <p class="cartaz-kicker">
           <span class="kicker-jp">ワイアードレイヤー</span>
           <span class="kicker-sep" aria-hidden="true">·</span>
           <span data-i18n="hero.kicker">layer 0 · network</span>
         </p>
 
-        <h1 class="logo" data-text="WIRED">WIRED</h1>
-        <p class="logo-sub">LAYER CO.</p>
+        <h1 class="cartaz-script" data-text="wired"><span data-i18n="hero.palavra">wired</span></h1>
+        <p class="cartaz-oficio">layer co.</p>
 
-        <p class="tagline">Present day, present time<span class="cursor" aria-hidden="true">▌</span></p>
+        <p class="tagline">present day, present time<span class="cursor" aria-hidden="true">▌</span></p>
 
-        <p class="lead" data-i18n="hero.lead">
-          Tools and custom software, built in layers. From the network to the
+        <p class="cartaz-lead" data-i18n="hero.lead">
+          tools and custom software, built in layers. from the network to the
           pixel: infrastructure, product, and finish in the same stack.
         </p>
 
         <div class="acoes">
-          <a class="btn btn-primario" href="#camadas">
-            <span data-i18n="hero.ctaPrimary">View the layers</span>
-            <span class="btn-seta" aria-hidden="true">↓</span>
+          <a class="btn btn-cheio" href="#camadas">
+            <span data-i18n="hero.ctaPrimary">view the layers</span>
+            <span aria-hidden="true">↓</span>
           </a>
-          <a class="btn" href="https://portfolio.wired.rs/#contato" target="_blank" rel="noopener">
-            <span data-i18n="hero.ctaSecondary">Talk to Wired Layer Co.</span>
-            <span class="btn-seta" aria-hidden="true">↗</span>
+          <a class="btn btn-vazio" href="https://portfolio.wired.rs/#contato" target="_blank" rel="noopener">
+            <span data-i18n="hero.ctaSecondary">talk to wired layer co.</span>
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="camadas" id="camadas">
-      <div class="secao-topo">
-        <h2><span class="h2-jp">そう</span> / layers</h2>
-        <p class="secao-desc" data-i18n="camadas.desc">Each tool is a layer in the same stack. Pick one and connect.</p>
+    <section class="folha" id="camadas">
+      <img class="fundo fundo-ascii" src="pontos-ascii.svg?v=3" alt="" aria-hidden="true">
+      <img class="fundo fundo-estrelas" src="pontos-estrelas.svg?v=3" alt="" aria-hidden="true">
+      <div class="faiscas" aria-hidden="true">
+        <span class="cintila" style="--x:91.2%;--y:12.5%;--t:13px;--atraso:0.84s;--dur:3.42s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#estrela"/></svg></span>
+        <span class="cintila" style="--x:7.4%;--y:22.6%;--t:11px;--atraso:2.41s;--dur:3.87s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
+        <span class="cintila" style="--x:5.8%;--y:88.3%;--t:16px;--atraso:3.67s;--dur:4.09s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#quadradinho"/></svg></span>
+        <span class="cintila" style="--x:93.6%;--y:79.5%;--t:9px;--atraso:1.32s;--dur:3.24s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
       </div>
 
-      <div class="pilha">
-        <a class="camada" href="https://boxdgrid.wired.rs/">
-          <span class="camada-idx" aria-hidden="true">L0</span>
-          <span class="camada-icone" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-          </span>
-          <span class="camada-info">
-            <span class="camada-nome">boxdgrid</span>
-            <span class="camada-desc" data-i18n="tool.boxdgrid">Letterboxd movie collage maker</span>
-          </span>
-          <span class="camada-led" aria-hidden="true"></span>
-          <span class="camada-acesso"><span data-i18n="camadas.acesso">access</span> <span aria-hidden="true">→</span></span>
-        </a>
+      <div class="limite">
+        <p class="rotulo" data-i18n="camadas.rotulo">the stack</p>
+        <h2 class="titulo" data-i18n="camadas.titulo"><span class="h2-jp">そう</span> / layers</h2>
+        <p class="secao-desc" data-i18n="camadas.desc">each tool is a layer in the same stack. pick one and connect.</p>
 
-        <a class="camada" href="https://songhunter.wired.rs/">
-          <span class="camada-idx" aria-hidden="true">L1</span>
-          <span class="camada-icone" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-4M8 17V7M12 20V4M16 17V7M20 14v-4"/></svg>
-          </span>
-          <span class="camada-info">
-            <span class="camada-nome">songhunter</span>
-            <span class="camada-desc" data-i18n="tool.songhunter">find songs from any link</span>
-          </span>
-          <span class="camada-led" aria-hidden="true"></span>
-          <span class="camada-acesso"><span data-i18n="camadas.acesso">access</span> <span aria-hidden="true">→</span></span>
-        </a>
+        <div class="pilha">
+          <a class="camada" href="https://boxdgrid.wired.rs/">
+            <span class="camada-idx" aria-hidden="true">L0</span>
+            <span class="camada-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+            </span>
+            <span class="camada-info">
+              <span class="camada-nome">boxdgrid</span>
+              <span class="camada-desc" data-i18n="tool.boxdgrid">letterboxd movie collage maker</span>
+            </span>
+            <span class="camada-acesso"><span data-i18n="camadas.acesso">access</span> <span aria-hidden="true">→</span></span>
+          </a>
 
-        <a class="camada" href="https://downloadanyvideo.wired.rs/">
-          <span class="camada-idx" aria-hidden="true">L2</span>
-          <span class="camada-icone" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/><path d="M12 2v7M9.5 6.5L12 9l2.5-2.5"/></svg>
-          </span>
-          <span class="camada-info">
-            <span class="camada-nome">downloadanyvideo</span>
-            <span class="camada-desc" data-i18n="tool.downloadanyvideo">download videos from any link</span>
-          </span>
-          <span class="camada-led" aria-hidden="true"></span>
-          <span class="camada-acesso"><span data-i18n="camadas.acesso">access</span> <span aria-hidden="true">→</span></span>
-        </a>
+          <a class="camada" href="https://songhunter.wired.rs/">
+            <span class="camada-idx" aria-hidden="true">L1</span>
+            <span class="camada-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-4M8 17V7M12 20V4M16 17V7M20 14v-4"/></svg>
+            </span>
+            <span class="camada-info">
+              <span class="camada-nome">songhunter</span>
+              <span class="camada-desc" data-i18n="tool.songhunter">find songs from any link</span>
+            </span>
+            <span class="camada-acesso"><span data-i18n="camadas.acesso">access</span> <span aria-hidden="true">→</span></span>
+          </a>
 
-        <a class="camada" href="https://portfolio.wired.rs/">
-          <span class="camada-idx" aria-hidden="true">L3</span>
-          <span class="camada-icone" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7.5 9.25l2.75 2.75-2.75 2.75"/><path d="M13 14.75h3.75"/></svg>
-          </span>
-          <span class="camada-info">
-            <span class="camada-nome">portfolio</span>
-            <span class="camada-desc" data-i18n="tool.portfolio">services, projects, and contact</span>
-          </span>
-          <span class="camada-led" aria-hidden="true"></span>
-          <span class="camada-acesso"><span data-i18n="camadas.acesso">access</span> <span aria-hidden="true">→</span></span>
-        </a>
+          <a class="camada" href="https://downloadanyvideo.wired.rs/">
+            <span class="camada-idx" aria-hidden="true">L2</span>
+            <span class="camada-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/><path d="M12 2v7M9.5 6.5L12 9l2.5-2.5"/></svg>
+            </span>
+            <span class="camada-info">
+              <span class="camada-nome">downloadanyvideo</span>
+              <span class="camada-desc" data-i18n="tool.downloadanyvideo">download videos from any link</span>
+            </span>
+            <span class="camada-acesso"><span data-i18n="camadas.acesso">access</span> <span aria-hidden="true">→</span></span>
+          </a>
 
-        <a class="camada" href="https://leads.wired.rs/">
-          <span class="camada-idx" aria-hidden="true">L4</span>
-          <span class="camada-icone" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
-          </span>
-          <span class="camada-info">
-            <span class="camada-nome">leads</span>
-            <span class="camada-desc" data-i18n="tool.leads">prospecting and sales intelligence</span>
-          </span>
-          <span class="camada-led" aria-hidden="true"></span>
-          <span class="camada-acesso"><span data-i18n="camadas.acesso">access</span> <span aria-hidden="true">→</span></span>
-        </a>
+          <a class="camada" href="https://portfolio.wired.rs/">
+            <span class="camada-idx" aria-hidden="true">L3</span>
+            <span class="camada-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7.5 9.25l2.75 2.75-2.75 2.75"/><path d="M13 14.75h3.75"/></svg>
+            </span>
+            <span class="camada-info">
+              <span class="camada-nome">portfolio</span>
+              <span class="camada-desc" data-i18n="tool.portfolio">services, projects, and contact</span>
+            </span>
+            <span class="camada-acesso"><span data-i18n="camadas.acesso">access</span> <span aria-hidden="true">→</span></span>
+          </a>
+
+          <a class="camada" href="https://leads.wired.rs/">
+            <span class="camada-idx" aria-hidden="true">L4</span>
+            <span class="camada-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            </span>
+            <span class="camada-info">
+              <span class="camada-nome">leads</span>
+              <span class="camada-desc" data-i18n="tool.leads">prospecting and sales intelligence</span>
+            </span>
+            <span class="camada-acesso"><span data-i18n="camadas.acesso">access</span> <span aria-hidden="true">→</span></span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="manifesto">
-      <p class="manifesto-jp">ワイアードより愛をこめて</p>
-      <blockquote class="citacao">
-        “Be aware that you are connected.”
-      </blockquote>
-      <p class="citacao-fonte">— Chiaki J. Konaka · Serial Experiments Lain</p>
+    <section class="folha folha-alt manifesto" id="manifesto">
+      <img class="fundo fundo-onda" src="pontos-onda.svg?v=3" alt="" aria-hidden="true">
+      <img class="fundo fundo-losango" src="pontos-losango.svg?v=3" alt="" aria-hidden="true">
+      <div class="faiscas" aria-hidden="true">
+        <span class="cintila" style="--x:12.6%;--y:18.4%;--t:13px;--atraso:1.87s;--dur:3.58s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
+        <span class="cintila" style="--x:88.5%;--y:24.7%;--t:11px;--atraso:0.53s;--dur:4.13s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#estrela"/></svg></span>
+        <span class="cintila" style="--x:78.4%;--y:84.2%;--t:9px;--atraso:3.12s;--dur:3.31s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#losango"/></svg></span>
+      </div>
 
-      <p class="manifesto-texto" data-i18n="manifesto.text">
-        Wired Layer Co. builds software end to end: network, servers, APIs,
-        interfaces, and product. Every project is a stack — and every layer has
-        to stand on its own for the whole to work.
-      </p>
+      <div class="limite">
+        <p class="manifesto-jp">ワイアードより愛をこめて</p>
+        <blockquote class="citacao">“be aware that you are connected.”</blockquote>
+        <p class="citacao-fonte">chiaki j. konaka · serial experiments lain</p>
+        <p class="manifesto-texto" data-i18n="manifesto.text">
+          wired layer co. builds software end to end: network, servers, apis,
+          interfaces, and product. every project is a stack, and every layer has
+          to stand on its own for the whole to work.
+        </p>
+      </div>
     </section>
   </main>
 
   <footer class="rodape">
-    <div class="rodape-linha">
+    <div class="limite rodape-linha">
       <p class="rodape-marca">
-        <span class="led" aria-hidden="true"></span>
-        <a href="https://portfolio.wired.rs/" target="_blank" rel="noopener">Wired Layer Co.</a>
+        <span class="marca-selo pequeno" aria-hidden="true">w</span>
+        <a href="https://portfolio.wired.rs/" target="_blank" rel="noopener">wired layer co.</a>
       </p>
-      <p class="rodape-meta">Curitiba · Brasil</p>
+      <p class="rodape-meta">curitiba · brasil</p>
       <p class="rodape-meta">
         <a href="mailto:luis&#64;wired.rs" data-email="luis&#64;wired.rs">luis&#64;wired.rs</a>
       </p>
@@ -231,14 +263,14 @@
   <div class="protocolo" id="protocolo" role="dialog" aria-modal="true" aria-labelledby="protocolo-titulo" hidden>
     <div class="protocolo-conteudo">
       <p class="protocolo-kicker">wireframe · layer ∞</p>
-      <h2 class="protocolo-titulo" id="protocolo-titulo" data-text="PROTOCOL 7">PROTOCOL 7</h2>
-      <p class="protocolo-frase" data-i18n="protocolo.frase">Close the world. Open the next.</p>
-      <p class="protocolo-sub" data-i18n="protocolo.sub">You are not alone. You are part of the Wired.</p>
-      <p class="protocolo-dica" data-i18n="protocolo.dica">Press ESC to return to reality.</p>
+      <h2 class="protocolo-titulo" id="protocolo-titulo" data-text="protocol 7">protocol 7</h2>
+      <p class="protocolo-frase" data-i18n="protocolo.frase">close the world. open the next.</p>
+      <p class="protocolo-sub" data-i18n="protocolo.sub">you are not alone. you are part of the wired.</p>
+      <p class="protocolo-dica" data-i18n="protocolo.dica">press esc to return to reality.</p>
     </div>
   </div>
 
-  <script src="i18n.js?v=2"></script>
-  <script src="script.js?v=2"></script>
+  <script src="i18n.js?v=3"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

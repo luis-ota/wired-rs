@@ -7,51 +7,59 @@
 
   var DICIONARIO = {
     en: {
-      "lang.aria": "Language",
+      "lang.aria": "language",
+      "pular": "skip to the layers",
       "meta.description":
-        "Wired Layer Co. — tools, custom software, and infrastructure. Present day, present time.",
+        "wired layer co. · tools, custom software, and infrastructure. present day, present time.",
       "hero.kicker": "layer 0 · network",
+      "hero.palavra": "wired",
       "hero.lead":
-        "Tools and custom software, built in layers. From the network to the pixel: infrastructure, product, and finish in the same stack.",
-      "hero.ctaPrimary": "View the layers",
-      "hero.ctaSecondary": "Talk to Wired Layer Co.",
-      "camadas.desc": "Each tool is a layer in the same stack. Pick one and connect.",
+        "tools and custom software, built in layers. from the network to the pixel: infrastructure, product, and finish in the same stack.",
+      "hero.ctaPrimary": "view the layers",
+      "hero.ctaSecondary": "talk to wired layer co.",
+      "camadas.rotulo": "the stack",
+      "camadas.titulo": "そう / layers",
+      "camadas.desc": "each tool is a layer in the same stack. pick one and connect.",
       "camadas.acesso": "access",
-      "tool.boxdgrid": "Letterboxd movie collage maker",
+      "tool.boxdgrid": "letterboxd movie collage maker",
       "tool.songhunter": "find songs from any link",
       "tool.downloadanyvideo": "download videos from any link",
       "tool.portfolio": "services, projects, and contact",
       "tool.leads": "prospecting and sales intelligence",
       "manifesto.text":
-        "Wired Layer Co. builds software end to end: network, servers, APIs, interfaces, and product. Every project is a stack — and every layer has to stand on its own for the whole to work.",
+        "wired layer co. builds software end to end: network, servers, apis, interfaces, and product. every project is a stack, and every layer has to stand on its own for the whole to work.",
       "footer.connected": "you are connected",
-      "protocolo.frase": "Close the world. Open the next.",
-      "protocolo.sub": "You are not alone. You are part of the Wired.",
-      "protocolo.dica": "Press ESC to return to reality."
+      "protocolo.frase": "close the world. open the next.",
+      "protocolo.sub": "you are not alone. you are part of the wired.",
+      "protocolo.dica": "press esc to return to reality."
     },
 
     pt: {
-      "lang.aria": "Idioma",
+      "lang.aria": "idioma",
+      "pular": "pular para as camadas",
       "meta.description":
-        "Wired Layer Co. — ferramentas, software sob medida e infraestrutura. Present day, present time.",
+        "wired layer co. · ferramentas, software sob medida e infraestrutura. present day, present time.",
       "hero.kicker": "camada 0 · rede",
+      "hero.palavra": "wired",
       "hero.lead":
-        "Ferramentas e software sob medida, construídos em camadas. Da rede ao pixel: infraestrutura, produto e acabamento na mesma pilha.",
-      "hero.ctaPrimary": "Ver as camadas",
-      "hero.ctaSecondary": "Falar com a Wired Layer Co.",
-      "camadas.desc": "Cada ferramenta é uma camada da mesma pilha. Escolha uma e conecte-se.",
+        "ferramentas e software sob medida, construídos em camadas. da rede ao pixel: infraestrutura, produto e acabamento na mesma pilha.",
+      "hero.ctaPrimary": "ver as camadas",
+      "hero.ctaSecondary": "falar com a wired layer co.",
+      "camadas.rotulo": "a pilha",
+      "camadas.titulo": "そう / camadas",
+      "camadas.desc": "cada ferramenta é uma camada da mesma pilha. escolha uma e conecte-se.",
       "camadas.acesso": "acessar",
-      "tool.boxdgrid": "colagem de filmes do Letterboxd",
+      "tool.boxdgrid": "colagem de filmes do letterboxd",
       "tool.songhunter": "identificação de músicas por link",
       "tool.downloadanyvideo": "baixe vídeos de qualquer link",
       "tool.portfolio": "serviços, projetos e contato",
       "tool.leads": "prospecção e inteligência comercial",
       "manifesto.text":
-        "A Wired Layer Co. constrói software de ponta a ponta: rede, servidores, APIs, interfaces e produto. Cada projeto é uma pilha — e cada camada precisa se sustentar sozinha para o conjunto funcionar.",
+        "a wired layer co. constrói software de ponta a ponta: rede, servidores, apis, interfaces e produto. cada projeto é uma pilha, e cada camada precisa se sustentar sozinha para o conjunto funcionar.",
       "footer.connected": "você está conectado",
-      "protocolo.frase": "Feche o mundo. Abra o próximo.",
-      "protocolo.sub": "Você não está sozinho. Você faz parte da Wired.",
-      "protocolo.dica": "Pressione ESC para voltar à realidade."
+      "protocolo.frase": "feche o mundo. abra o próximo.",
+      "protocolo.sub": "você não está sozinho. você faz parte da wired.",
+      "protocolo.dica": "pressione esc para voltar à realidade."
     }
   };
 
@@ -86,7 +94,7 @@
     document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
     document.documentElement.setAttribute("data-lang", lang);
 
-    document.querySelectorAll(".lang-opcao").forEach(function (botao) {
+    document.querySelectorAll(".idioma-opcao").forEach(function (botao) {
       botao.setAttribute("aria-pressed", String(botao.getAttribute("data-lang") === lang));
     });
 
@@ -105,7 +113,7 @@
     trocar: aplicar
   };
 
-  document.querySelectorAll(".lang-opcao").forEach(function (botao) {
+  document.querySelectorAll(".idioma-opcao").forEach(function (botao) {
     botao.addEventListener("click", function () {
       var alvo = botao.getAttribute("data-lang");
       if (alvo !== idioma) aplicar(alvo);
