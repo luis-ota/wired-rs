@@ -9,33 +9,46 @@ on:
 
 permissions:
   contents: read
+  packages: write
 
 concurrency:
   group: deploy-production
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  image:
+    name: Build image
     runs-on: ubuntu-latest
-    environment: production
     steps:
-      - name: Configure SSH
-        env:
-          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
-        run: |
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
-          chmod 644 ~/.ssh/known_hosts
+      - uses: actions/checkout@v4
 
-      # A chave tem forced command no servidor (/usr/local/bin/deploy-wired-rs).
-      # Nenhum comando remoto é aceito: a conexão só executa o git pull do site.
-      - name: Deploy via forced command
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/luis-ota/wired-rs:latest
+            ghcr.io/luis-ota/wired-rs:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    name: Deploy production (Coolify)
+    needs: image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Coolify deploy
         env:
-          HOST: ${{ secrets.DEPLOY_HOST }}
-          USER: ${{ secrets.DEPLOY_USER }}
+          COOLIFY_TOKEN: ${{ secrets.COOLIFY_TOKEN }}
         run: |
-          ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o BatchMode=yes "$USER@$HOST"
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $COOLIFY_TOKEN" \
+            "https://coolify.wired.rs/api/v1/deploy?uuid=slptddniemxprvvxciargwwu&force=true"
