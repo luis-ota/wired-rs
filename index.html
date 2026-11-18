@@ -58,32 +58,27 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Yellowtail&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/arq-escada.svg">
+  <link rel="stylesheet" href="styles.css?v=6">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body id="topo">
 
-  <svg class="simbolos" aria-hidden="true" focusable="false">
-    <symbol id="faisca" viewBox="0 0 16 16"><path d="M8 0c.7 4.7 2.6 6.6 8 8-5.4 1.4-7.3 3.3-8 8-.7-4.7-2.6-6.6-8-8 5.4-1.4 7.3-3.3 8-8z" fill="currentColor"/></symbol>
-    <symbol id="ponto" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3.4" fill="currentColor"/></symbol>
-    <symbol id="mais" viewBox="0 0 16 16"><path d="M6.9 0h2.2v6.9H16v2.2H9.1V16H6.9V9.1H0V6.9h6.9z" fill="currentColor"/></symbol>
-    <symbol id="losango" viewBox="0 0 16 16"><path d="M8 0c.7 4.7 2.6 6.6 8 8-5.4 1.4-7.3 3.3-8 8-.7-4.7-2.6-6.6-8-8 5.4-1.4 7.3-3.3 8-8z" fill="currentColor" transform="rotate(45 8 8)"/></symbol>
-    <symbol id="estrela" viewBox="0 0 16 16"><path d="M8 0l1.9 6.1L16 8l-6.1 1.9L8 16l-1.9-6.1L0 8l6.1-1.9z" fill="currentColor"/></symbol>
-    <symbol id="quadradinho" viewBox="0 0 16 16"><path d="M1.6 1.6h3.6v3.6H1.6zM6.2 1.6h3.6v3.6H6.2zM10.8 1.6h3.6v3.6h-3.6zM1.6 6.2h3.6v3.6H1.6zM6.2 6.2h3.6v3.6H6.2zM10.8 6.2h3.6v3.6h-3.6zM1.6 10.8h3.6v3.6H1.6zM6.2 10.8h3.6v3.6H6.2zM10.8 10.8h3.6v3.6h-3.6z" fill="currentColor"/></symbol>
-    <symbol id="tracejar" viewBox="0 0 16 16"><path d="M0 4.9h6.3v2.4H0zM9.7 4.9H16v2.4H9.7zM4.9 10.6h6.2v2.4H4.9z" fill="currentColor"/></symbol>
-  </svg>
-
   <a class="pular" href="#camadas" data-i18n="pular">skip to the layers</a>
 
   <header class="cabeca">
     <div class="limite cabeca-linha">
       <a class="marca" href="#topo"><span class="marca-selo" aria-hidden="true">w</span> wired layer co.</a>
+      <nav class="nav" aria-label="sections">
+        <a href="#camadas" data-nav="camadas"><span data-i18n="nav.camadas">stack</span></a>
+        <a href="#formato" data-nav="formato"><span data-i18n="nav.formato">standard</span></a>
+        <a href="#manifesto" data-nav="manifesto"><span data-i18n="nav.manifesto">manifesto</span></a>
+        <a href="#contato" data-nav="contato"><span data-i18n="nav.contato">contact</span></a>
+      </nav>
       <span class="hud-dados" aria-hidden="true">
-        <span class="hud-item">protocol 7</span>
-        <span class="hud-sep">/</span>
         <span class="hud-item" id="relogio">--:--:--</span>
         <span class="hud-sep">/</span>
         <span class="hud-item">seq <span id="seq">____</span></span>
@@ -98,68 +93,69 @@
 
   <main id="conteudo">
 
-    <section class="cartaz">
+    <section class="cartaz" id="topo-secao">
       <canvas id="rede" aria-hidden="true"></canvas>
-      <img class="fundo fundo-abstrato" src="dados-abstrato.svg?v=3" alt="" aria-hidden="true">
-      <div class="faiscas" aria-hidden="true">
-        <span class="cintila" style="--x:8.5%;--y:26.5%;--t:13px;--atraso:1.24s;--dur:3.62s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
-        <span class="cintila" style="--x:16.2%;--y:74.5%;--t:9px;--atraso:2.87s;--dur:4.05s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#ponto"/></svg></span>
-        <span class="cintila" style="--x:27.8%;--y:14.2%;--t:11px;--atraso:0.42s;--dur:3.31s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#estrela"/></svg></span>
-        <span class="cintila" style="--x:71.5%;--y:18.5%;--t:16px;--atraso:3.56s;--dur:3.88s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
-        <span class="cintila" style="--x:83.2%;--y:37.8%;--t:9px;--atraso:1.93s;--dur:4.22s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#losango"/></svg></span>
-        <span class="cintila" style="--x:90.6%;--y:70.4%;--t:13px;--atraso:0.71s;--dur:2.94s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
-        <span class="cintila" style="--x:63.4%;--y:82.5%;--t:11px;--atraso:2.35s;--dur:3.47s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#mais"/></svg></span>
-        <span class="cintila" style="--x:38.7%;--y:88.4%;--t:9px;--atraso:3.98s;--dur:4.16s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
-        <span class="cintila" style="--x:47.2%;--y:9.8%;--t:9px;--atraso:1.55s;--dur:3.73s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#ponto"/></svg></span>
-        <span class="cintila" style="--x:6.4%;--y:52.6%;--t:11px;--atraso:2.68s;--dur:3.19s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#quadradinho"/></svg></span>
-      </div>
+      <div class="limite cartaz-grade">
+        <div class="cartaz-texto">
+          <p class="rotulo-linha">
+            <span class="rotulo">00</span>
+            <span class="kicker-jp">ワイアードレイヤー</span>
+            <span class="kicker-sep" aria-hidden="true">·</span>
+            <span class="rotulo" data-i18n="hero.kicker">layer 0 · network</span>
+          </p>
 
-      <div class="limite cartaz-conteudo">
-        <p class="cartaz-kicker">
-          <span class="kicker-jp">ワイアードレイヤー</span>
-          <span class="kicker-sep" aria-hidden="true">·</span>
-          <span data-i18n="hero.kicker">layer 0 · network</span>
-        </p>
+          <h1 class="cartaz-titulo"><span data-i18n="hero.palavra">wired</span> <b data-i18n="hero.oficio">layer co.</b></h1>
 
-        <h1 class="cartaz-script" data-text="wired"><span data-i18n="hero.palavra">wired</span></h1>
-        <p class="cartaz-oficio">layer co.</p>
+          <p class="tagline">present day, present time<span class="cursor" aria-hidden="true">▌</span></p>
 
-        <p class="tagline">present day, present time<span class="cursor" aria-hidden="true">▌</span></p>
+          <p class="cartaz-lead" data-i18n="hero.lead">
+            tools and custom software, built in layers. from the network to the
+            pixel: infrastructure, product, and finish in the same stack.
+          </p>
 
-        <p class="cartaz-lead" data-i18n="hero.lead">
-          tools and custom software, built in layers. from the network to the
-          pixel: infrastructure, product, and finish in the same stack.
-        </p>
-
-        <div class="acoes">
-          <a class="btn btn-cheio" href="#camadas">
-            <span data-i18n="hero.ctaPrimary">view the layers</span>
-            <span aria-hidden="true">↓</span>
-          </a>
-          <a class="btn btn-vazio" href="https://portfolio.wired.rs/#contato" target="_blank" rel="noopener">
-            <span data-i18n="hero.ctaSecondary">talk to wired layer co.</span>
-            <span aria-hidden="true">➚</span>
-          </a>
+          <div class="acoes">
+            <a class="btn btn-cheio" href="#camadas">
+              <span data-i18n="hero.ctaPrimary">view the layers</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+            <a class="btn btn-vazio" href="https://portfolio.wired.rs/#contato" target="_blank" rel="noopener">
+              <span data-i18n="hero.ctaSecondary">talk to wired layer co.</span>
+              <span aria-hidden="true">➚</span>
+            </a>
+          </div>
         </div>
+
+        <figure class="poster poster-hero">
+          <div class="poster-arte par" data-par="0.05">
+            <img src="assets/arq-escada.svg" alt="" width="800" height="1000" fetchpriority="high">
+          </div>
+          <figcaption class="poster-topo"><span class="marca-selo pequeno" aria-hidden="true">w</span><span class="poster-marca">wired.rs</span></figcaption>
+          <p class="poster-nota" data-i18n="hero.nota">from the network to the pixel.</p>
+          <p class="poster-pe"><span>wired.rs</span><span>2026</span></p>
+        </figure>
       </div>
     </section>
 
-    <section class="folha" id="camadas">
-      <img class="fundo fundo-ascii" src="pontos-ascii.svg?v=3" alt="" aria-hidden="true">
-      <img class="fundo fundo-estrelas" src="pontos-estrelas.svg?v=3" alt="" aria-hidden="true">
-      <div class="faiscas" aria-hidden="true">
-        <span class="cintila" style="--x:91.2%;--y:12.5%;--t:13px;--atraso:0.84s;--dur:3.42s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#estrela"/></svg></span>
-        <span class="cintila" style="--x:7.4%;--y:22.6%;--t:11px;--atraso:2.41s;--dur:3.87s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
-        <span class="cintila" style="--x:5.8%;--y:88.3%;--t:16px;--atraso:3.67s;--dur:4.09s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#quadradinho"/></svg></span>
-        <span class="cintila" style="--x:93.6%;--y:79.5%;--t:9px;--atraso:1.32s;--dur:3.24s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-trilho">
+        <div class="marquee-grupo">
+          <span data-i18n="marq.1">tools</span><i></i><span data-i18n="marq.2">custom software</span><i></i><span data-i18n="marq.3">infrastructure</span><i></i><span>present day, present time</span><i></i>
+        </div>
+        <div class="marquee-grupo">
+          <span data-i18n="marq.1">tools</span><i></i><span data-i18n="marq.2">custom software</span><i></i><span data-i18n="marq.3">infrastructure</span><i></i><span>present day, present time</span><i></i>
+        </div>
       </div>
+    </div>
 
+    <section class="folha" id="camadas">
       <div class="limite">
-        <p class="rotulo" data-i18n="camadas.rotulo">the stack</p>
-        <h2 class="titulo" data-i18n="camadas.titulo"><span class="h2-jp">そう</span> / layers</h2>
-        <p class="secao-desc" data-i18n="camadas.desc">each tool is a layer in the same stack. pick one and connect.</p>
+        <header class="folha-topo">
+          <p class="rotulo-linha"><span class="rotulo">01</span><span class="rotulo" data-i18n="camadas.rotulo">the stack</span></p>
+          <h2 class="titulo" data-i18n-html="camadas.titulo"><span class="h2-jp">そう</span> / <b>layers</b></h2>
+          <p class="secao-desc" data-i18n="camadas.desc">each tool is a layer in the same stack. pick one and connect.</p>
+        </header>
 
-        <div class="pilha">
+<div class="pilha">
           <a class="camada" href="https://boxdgrid.wired.rs/">
             <span class="camada-idx" aria-hidden="true">L0</span>
             <span class="camada-icone" aria-hidden="true">
@@ -244,27 +240,72 @@
             <span class="camada-acesso"><span data-i18n="camadas.acesso">access</span> <span aria-hidden="true">→</span></span>
           </a>
         </div>
+        <p class="fecho" data-i18n="camadas.fecho">one stack. seven layers.</p>
       </div>
     </section>
 
-    <section class="folha folha-alt manifesto" id="manifesto">
-      <img class="fundo fundo-onda" src="pontos-onda.svg?v=3" alt="" aria-hidden="true">
-      <img class="fundo fundo-losango" src="pontos-losango.svg?v=3" alt="" aria-hidden="true">
-      <div class="faiscas" aria-hidden="true">
-        <span class="cintila" style="--x:12.6%;--y:18.4%;--t:13px;--atraso:1.87s;--dur:3.58s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#faisca"/></svg></span>
-        <span class="cintila" style="--x:88.5%;--y:24.7%;--t:11px;--atraso:0.53s;--dur:4.13s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#estrela"/></svg></span>
-        <span class="cintila" style="--x:78.4%;--y:84.2%;--t:9px;--atraso:3.12s;--dur:3.31s"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#losango"/></svg></span>
-      </div>
-
+    <section class="folha folha-papel" id="formato">
       <div class="limite">
+        <header class="folha-topo">
+          <p class="rotulo-linha"><span class="rotulo">02</span><span class="rotulo" data-i18n="formato.rotulo">the standard</span></p>
+          <h2 class="titulo" data-i18n-html="formato.titulo">every tool, <b>same standard</b>.</h2>
+          <p class="secao-desc" data-i18n="formato.desc">different jobs, same discipline: fast, simple, and built to last.</p>
+        </header>
+
+        <div class="grade" aria-hidden="true">
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t1"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t2"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t3"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t4"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t5"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t6"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t7"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t8"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t9"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t10"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t11"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t12"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t13"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t14"/></svg></figure>
+          <figure><svg viewBox="0 0 200 250"><use href="assets/tanques.svg#t15"/></svg></figure>
+        </div>
+
+        <p class="fecho fecho-dir" data-i18n="formato.fecho">one standard. every layer.</p>
+      </div>
+    </section>
+
+    <section class="folha folha-campo manifesto" id="manifesto">
+      <div class="campo-arte par" data-par="0.04" aria-hidden="true">
+        <img src="assets/hero-campo.svg" alt="" width="1600" height="900" loading="lazy">
+      </div>
+      <div class="limite">
+        <p class="rotulo-linha"><span class="rotulo">03</span><span class="rotulo" data-i18n="manifesto.rotulo">manifesto</span></p>
         <p class="manifesto-jp">ワイアードより愛をこめて</p>
-        <blockquote class="citacao">“be aware that you are connected.”</blockquote>
+        <blockquote class="citacao" data-i18n-html="manifesto.citacao">“be aware that you are <b>connected</b>.”</blockquote>
         <p class="citacao-fonte">chiaki j. konaka · serial experiments lain</p>
         <p class="manifesto-texto" data-i18n="manifesto.text">
           wired layer co. builds software end to end: network, servers, apis,
           interfaces, and product. every project is a stack, and every layer has
           to stand on its own for the whole to work.
         </p>
+        <p class="fecho fecho-claro" data-i18n="manifesto.fecho">the whole stands on its layers.</p>
+      </div>
+    </section>
+
+    <section class="folha folha-papel folha-fim" id="contato">
+      <div class="fim-arte par" data-par="0.03" aria-hidden="true">
+        <img src="assets/arq-andaime.svg" alt="" width="800" height="1000" loading="lazy">
+      </div>
+      <div class="limite">
+        <p class="rotulo-linha"><span class="rotulo">04</span><span class="rotulo" data-i18n="contato.rotulo">contact</span></p>
+        <h2 class="titulo titulo-grande" data-i18n-html="contato.titulo">have a layer <b>in mind</b>?</h2>
+        <div class="acoes acoes-esq">
+          <a class="btn btn-cheio" href="https://portfolio.wired.rs/#contato" target="_blank" rel="noopener">
+            <span data-i18n="hero.ctaSecondary">talk to wired layer co.</span>
+            <span aria-hidden="true">➚</span>
+          </a>
+        </div>
+        <p class="fecho" data-i18n="contato.fecho">you are connected.</p>
       </div>
     </section>
   </main>
@@ -281,6 +322,7 @@
       </p>
     </div>
     <p class="rodape-frase"><span aria-hidden="true">←</span> <span data-i18n="footer.connected">you are connected</span> <span aria-hidden="true">→</span></p>
+    <p class="rodape-credito" data-i18n="footer.credito">illustrations: original svg by wired layer co.</p>
   </footer>
 
   <!-- protocolo 7 · camada oculta -->
@@ -294,7 +336,7 @@
     </div>
   </div>
 
-  <script src="i18n.js?v=4"></script>
-  <script src="script.js?v=4"></script>
+  <script src="i18n.js?v=5"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

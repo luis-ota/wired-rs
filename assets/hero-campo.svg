@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" role="img" aria-label="">
+<defs>
+<linearGradient id="ceu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16319f"/><stop offset=".55" stop-color="#2150e6"/><stop offset="1" stop-color="#2f6bff"/></linearGradient>
+<linearGradient id="muro" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d8ccb2"/><stop offset="1" stop-color="#c3b597"/></linearGradient>
+<linearGradient id="chao" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d0c3a6"/><stop offset=".55" stop-color="#b9aa8a"/><stop offset="1" stop-color="#6d6450"/></linearGradient>
+<linearGradient id="som" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#14142a" stop-opacity=".55"/><stop offset="1" stop-color="#14142a" stop-opacity=".9"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#ceu)"/>
+<polygon points="1240,0 1600,0 1600,610 1240,575" fill="url(#muro)"/>
+<polygon points="1240,575 1600,610 1600,634 1240,598" fill="#9c8f6f"/>
+<polygon points="0,640 700,600 700,680 0,730" fill="#e6dcc3"/>
+<polygon points="0,730 700,680 700,900 0,900" fill="url(#muro)"/>
+<polygon points="120,810 166,810 166,788 120,788" fill="#f0e8d2"/>
+<polygon points="120,810 166,810 166,826 120,826" fill="#b2a384"/>
+<polygon points="166,788 212,788 212,766 166,766" fill="#f0e8d2"/>
+<polygon points="166,788 212,788 212,804 166,804" fill="#b2a384"/>
+<polygon points="212,766 258,766 258,744 212,744" fill="#f0e8d2"/>
+<polygon points="212,766 258,766 258,782 212,782" fill="#b2a384"/>
+<polygon points="258,744 304,744 304,722 258,722" fill="#f0e8d2"/>
+<polygon points="258,744 304,744 304,760 258,760" fill="#b2a384"/>
+<polygon points="304,722 350,722 350,700 304,700" fill="#f0e8d2"/>
+<polygon points="304,722 350,722 350,738 304,738" fill="#b2a384"/>
+<polygon points="350,700 396,700 396,678 350,678" fill="#f0e8d2"/>
+<polygon points="350,700 396,700 396,716 350,716" fill="#b2a384"/>
+<polygon points="396,678 442,678 442,656 396,656" fill="#f0e8d2"/>
+<polygon points="396,678 442,678 442,694 396,694" fill="#b2a384"/>
+<polygon points="442,656 488,656 488,634 442,634" fill="#f0e8d2"/>
+<polygon points="442,656 488,656 488,672 442,672" fill="#b2a384"/>
+<polygon points="488,634 534,634 534,612 488,612" fill="#f0e8d2"/>
+<polygon points="488,634 534,634 534,650 488,650" fill="#b2a384"/>
+<polygon points="0,800 1600,745 1600,900 0,900" fill="url(#chao)"/>
+<polygon points="760,860 1600,700 1600,900 600,900" fill="url(#som)"/>
+<ellipse cx="1030" cy="796" rx="52" ry="8" fill="#0c0c18" opacity=".6"/>
+<g transform="translate(1010 655) scale(1.1)" fill="#13131c"><ellipse cx="0" cy="0" rx="9" ry="10"/><path d="M-13 14 Q0 8 13 14 L16 78 L-16 78 Z"/><rect x="-14" y="76" width="11" height="48" rx="2"/><rect x="3" y="76" width="11" height="48" rx="2"/></g>
+</svg>

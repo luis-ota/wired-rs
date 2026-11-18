@@ -233,10 +233,13 @@
   });
 })();
 
-// wired.rs · metal editorial: header ao rolar e revelar seções
+// wired.rs · poster editorial: header, revelar com stagger, parallax e link ativo
 (function () {
   "use strict";
 
+  var reduzido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* header com borda/blur ao rolar */
   var cabeca = document.querySelector(".cabeca");
   function aoRolar() {
     if (cabeca) cabeca.classList.toggle("rolou", window.scrollY > 8);
@@ -244,26 +247,80 @@
   aoRolar();
   window.addEventListener("scroll", aoRolar, { passive: true });
 
-  var reduzido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduzido || !("IntersectionObserver" in window)) return;
-
-  var alvos = document.querySelectorAll(
-    ".folha .rotulo, .folha .titulo, .folha .secao-desc, .camada, .manifesto-jp, .citacao, .citacao-fonte, .manifesto-texto"
-  );
-  var io = new IntersectionObserver(function (entradas) {
-    entradas.forEach(function (e) {
-      if (e.isIntersecting) {
-        e.target.classList.add("in");
-        io.unobserve(e.target);
-      }
+  /* link ativo por secao */
+  var links = {};
+  document.querySelectorAll(".nav a[data-nav]").forEach(function (a) { links[a.getAttribute("data-nav")] = a; });
+  function marcar(id) {
+    Object.keys(links).forEach(function (k) {
+      if (k === id) links[k].setAttribute("aria-current", "true");
+      else links[k].removeAttribute("aria-current");
     });
-  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  }
+  if ("IntersectionObserver" in window) {
+    var visiveis = {};
+    var obsSecao = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) { visiveis[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0; });
+      var melhor = null, nota = 0;
+      Object.keys(visiveis).forEach(function (id) { if (visiveis[id] > nota) { nota = visiveis[id]; melhor = id; } });
+      marcar(melhor);
+    }, { rootMargin: "-30% 0px -45% 0px", threshold: [0, 0.1, 0.5, 1] });
+    Object.keys(links).forEach(function (id) {
+      var s = document.getElementById(id);
+      if (s) obsSecao.observe(s);
+    });
+  }
 
-  var i = 0;
-  alvos.forEach(function (el) {
-    if (el.getBoundingClientRect().top < window.innerHeight) return;
-    el.classList.add("reveal");
-    el.style.setProperty("--d", (i++ % 4) * 70 + "ms");
-    io.observe(el);
-  });
+  if (reduzido) return;
+
+  /* revelar com stagger suave */
+  if ("IntersectionObserver" in window) {
+    var grupos = [
+      ".folha-topo > *", ".pilha > .camada", ".grade > figure", ".fecho",
+      ".manifesto .limite > *", "#contato .limite > *"
+    ];
+    var io = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+
+    grupos.forEach(function (seletor) {
+      var cont = {};
+      document.querySelectorAll(seletor).forEach(function (el) {
+        if (el.classList.contains("reveal")) return;
+        var pai = el.parentElement;
+        var chave = pai ? (pai.className || pai.tagName) : "x";
+        var n = cont[chave] = (cont[chave] || 0) + 1;
+        el.classList.add("reveal");
+        var passo = seletor.indexOf("grade") > -1 ? 40 : 70;
+        el.style.setProperty("--d", Math.min(n - 1, 8) * passo + "ms");
+        io.observe(el);
+      });
+    });
+  }
+
+  /* parallax discreto (maximo ~20px) */
+  var pars = Array.prototype.slice.call(document.querySelectorAll(".par"));
+  if (pars.length) {
+    var pendente = false;
+    var atualizar = function () {
+      pendente = false;
+      var vh = window.innerHeight;
+      pars.forEach(function (el) {
+        var r = el.parentElement.getBoundingClientRect();
+        if (r.bottom < -40 || r.top > vh + 40) return;
+        var fator = parseFloat(el.getAttribute("data-par")) || 0.04;
+        var centro = r.top + r.height / 2 - vh / 2;
+        var d = Math.max(-20, Math.min(20, -centro * fator));
+        el.style.transform = "translate3d(0," + d.toFixed(1) + "px,0)";
+      });
+    };
+    var pedir = function () { if (!pendente) { pendente = true; requestAnimationFrame(atualizar); } };
+    window.addEventListener("scroll", pedir, { passive: true });
+    window.addEventListener("resize", pedir);
+    atualizar();
+  }
 })();
