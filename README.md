@@ -45,7 +45,7 @@ wired-rs/
 ## Rodar localmente
 
 ```bash
-python3 -m http.server 3320
+uv run python -m http.server 3320
 ```
 
 Acesse `http://localhost:3320`.

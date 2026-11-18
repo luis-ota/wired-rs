@@ -28,7 +28,8 @@
       "contato.rotulo": "contact",
       "contato.titulo": "have a layer <b>in mind</b>?",
       "contato.fecho": "you are connected.",
-      "footer.credito": "illustrations: original svg by wired layer co.",
+      "formato.imagem": "Fifteen black and white architectural studies of spherical industrial tanks, arranged in five columns and three rows.",
+      "footer.credito": "art direction: wired layer co. · ai-generated imagery",
       "pular": "skip to the layers",
       "meta.description":
         "wired layer co. · tools, custom software, and infrastructure. present day, present time.",
@@ -79,7 +80,8 @@
       "contato.rotulo": "contato",
       "contato.titulo": "tem uma camada <b>em mente</b>?",
       "contato.fecho": "você está conectado.",
-      "footer.credito": "ilustrações: svg original da wired layer co.",
+      "formato.imagem": "Quinze estudos arquitetônicos em preto e branco de tanques industriais esféricos, organizados em cinco colunas e três linhas.",
+      "footer.credito": "direção de arte: wired layer co. · imagens geradas com ia",
       "pular": "pular para as camadas",
       "meta.description":
         "wired layer co. · ferramentas, software sob medida e infraestrutura. present day, present time.",
@@ -136,6 +138,10 @@
     });
     document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
       el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria")));
+    });
+
+    document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+      el.setAttribute("alt", t(el.getAttribute("data-i18n-alt")));
     });
 
     setMeta("description", t("meta.description"));

@@ -6,7 +6,7 @@
 
 /* ---------- 1. tokens ---------- */
 :root {
-  --papel: #f1efe9;
+  --papel: #f3f1eb;
   --papel-2: #e9e6de;
   --creme: #f8f6f1;
   --tinta: #0e0e14;
@@ -35,8 +35,9 @@
   --rede-no: rgba(31, 69, 224, 0.42);
   --rede-alerta: rgba(20, 50, 176, 0.7);
 
-  --ruido: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --ruido-escuro: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .05 0 0 0 0 .05 0 0 0 0 .1 1 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  /* Raster scan: fine cellulose fibers, shared by paper and printed imagery. */
+  --ruido: url("assets/sulfite-grain.webp");
+  --ruido-escuro: var(--ruido);
   --escovado: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 3px);
 }
 
@@ -70,8 +71,10 @@ body::before {
   inset: 0;
   z-index: 50;
   pointer-events: none;
-  background: var(--ruido-escuro);
-  opacity: 0.04;
+  background-image: var(--ruido);
+  background-size: 384px 384px;
+  mix-blend-mode: multiply;
+  opacity: 0.55;
 }
 
 img, svg, canvas { display: block; max-width: 100%; }
@@ -94,7 +97,7 @@ b { font-weight: 800; }
 /* ---------- 3. cabeca ---------- */
 .cabeca {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(241, 239, 233, 0.7);
+  background: rgba(243, 241, 235, 0.88);
   backdrop-filter: saturate(1.4) blur(14px);
   -webkit-backdrop-filter: saturate(1.4) blur(14px);
   border-bottom: 1px solid transparent;
@@ -103,7 +106,7 @@ b { font-weight: 800; }
 .cabeca.rolou {
   border-bottom-color: var(--linha);
   box-shadow: 0 10px 26px -20px rgba(14, 14, 20, 0.4);
-  background: rgba(241, 239, 233, 0.9);
+  background: rgba(243, 241, 235, 0.96);
 }
 .cabeca-linha { display: flex; align-items: center; gap: 20px; min-height: 68px; }
 
@@ -284,7 +287,7 @@ b { font-weight: 800; }
 .poster {
   position: relative; overflow: hidden; isolation: isolate;
   aspect-ratio: 4 / 5; width: 100%; max-width: 480px; justify-self: end;
-  border-radius: 6px; background: var(--azul);
+  border-radius: 2px; background: var(--azul);
   box-shadow: 0 2px 2px rgba(14, 14, 20, 0.08), 0 30px 60px -28px rgba(20, 50, 176, 0.6);
   color: #fff;
 }
@@ -292,11 +295,11 @@ b { font-weight: 800; }
 .poster-arte img { width: 100%; height: 100%; object-fit: cover; }
 .poster::after {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: overlay; opacity: 0.12;
-  background: var(--ruido);
+  background: var(--ruido); background-size: 384px 384px;
 }
 .poster-topo { position: absolute; z-index: 2; top: 18px; left: 18px; right: 18px; display: flex; align-items: center; justify-content: space-between; flex-direction: row-reverse; }
 .poster-marca { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-.poster-nota { position: absolute; z-index: 2; right: 18px; top: 44%; max-width: 11rem; text-align: right; font-size: 0.8rem; font-weight: 600; line-height: 1.4; color: #fff; text-shadow: 0 1px 12px rgba(10, 20, 90, 0.5); }
+.poster-nota { position: absolute; z-index: 2; left: 24px; top: 32%; max-width: 12ch; text-align: left; font-size: clamp(1rem, 2vw, 1.5rem); font-weight: 400; line-height: 1.4; color: #fff; text-shadow: 0 1px 12px rgba(10, 20, 90, 0.5); }
 .poster-pe { position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 16px; display: flex; justify-content: space-between; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.06em; color: rgba(255, 255, 255, 0.92); }
 
 /* entrada do hero */
@@ -364,20 +367,13 @@ b { font-weight: 800; }
 .camada:hover .camada-acesso span[aria-hidden] { transform: translateX(4px); }
 
 /* ---------- 10. grade 5x3 ---------- */
-.grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; background: #fff; padding: 8px; border-radius: 4px; box-shadow: var(--sh-1); }
-@media (min-width: 700px) { .grade { grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 12px; } }
-.grade figure { position: relative; overflow: hidden; aspect-ratio: 200 / 250; background: #dcdbd6; }
-.grade svg { width: 100%; height: 100%; transition: transform 600ms var(--ease), filter 600ms var(--ease); filter: grayscale(1) contrast(1.02); }
-.grade figure::after {
-  content: ""; position: absolute; top: 0; bottom: 0; left: -70%; width: 45%; pointer-events: none; transform: skewX(-20deg);
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent); transition: transform 800ms var(--ease);
-}
-.grade figure:hover svg { transform: scale(1.06); filter: grayscale(0.2) contrast(1.05); }
-.grade figure:hover::after { transform: skewX(-20deg) translateX(520%); }
+.grade { overflow: hidden; background: var(--creme); }
+.grade img { width: 100%; height: auto; }
 
 /* ---------- 11. manifesto (campo de cor + figura) ---------- */
 .folha-campo { background: linear-gradient(180deg, #16319f, #2150e6 60%, #2f6bff); color: var(--creme); border-bottom: 0; padding: 120px 0 clamp(260px, 36vw, 420px); }
 .campo-arte { position: absolute; inset: -24px 0; z-index: 0; will-change: transform; }
+.campo-arte::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9, 25, 89, 0.48), transparent 78%); }
 .campo-arte img { position: absolute; inset: -4% 0 0; width: 100%; height: 104%; object-fit: cover; object-position: 50% 100%; }
 .folha-campo .rotulo, .folha-campo .rotulo-linha .rotulo:first-child { color: var(--periwinkle-claro); }
 .manifesto-jp { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; color: var(--periwinkle-claro); margin-bottom: var(--s4); }
@@ -393,7 +389,7 @@ b { font-weight: 800; }
 .folha-fim { border-bottom: 0; padding-bottom: 150px; }
 .fim-arte { position: absolute; inset: -24px 0 -24px auto; width: min(52%, 640px); z-index: 0; opacity: 0.9; will-change: transform; }
 .fim-arte img { width: 100%; height: 100%; object-fit: cover; -webkit-mask-image: linear-gradient(90deg, transparent, #000 38%); mask-image: linear-gradient(90deg, transparent, #000 38%); }
-@media (max-width: 760px) { .fim-arte { width: 100%; opacity: 0.4; } }
+@media (max-width: 760px) { .fim-arte { width: 100%; opacity: 0.26; } }
 
 /* ---------- 13. rodape ---------- */
 .rodape { padding: 48px 0 40px; background: var(--papel); border-top: 1px solid var(--linha); }
@@ -465,7 +461,7 @@ b { font-weight: 800; }
   .camada { grid-template-columns: auto minmax(0, 1fr) auto; }
   .camada-idx { display: none; }
   .rodape-linha { justify-content: center; text-align: center; }
-  .poster-nota { top: 40%; }
+  .poster-nota { top: 32%; }
 }
 @media (max-width: 480px) {
   .cabeca-linha { gap: 10px; }
