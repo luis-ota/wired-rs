@@ -275,7 +275,7 @@
   /* revelar com stagger suave */
   if ("IntersectionObserver" in window) {
     var grupos = [
-      ".folha-topo > *", ".pilha > .camada", ".grade > figure", ".fecho",
+      ".folha-topo > *", ".atos > .ato", ".grade > figure", ".fecho",
       ".manifesto .limite > *", "#contato .limite > *"
     ];
     var io = new IntersectionObserver(function (entradas) {
