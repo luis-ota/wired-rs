@@ -232,3 +232,38 @@
     }, 150);
   });
 })();
+
+// wired.rs · metal editorial: header ao rolar e revelar seções
+(function () {
+  "use strict";
+
+  var cabeca = document.querySelector(".cabeca");
+  function aoRolar() {
+    if (cabeca) cabeca.classList.toggle("rolou", window.scrollY > 8);
+  }
+  aoRolar();
+  window.addEventListener("scroll", aoRolar, { passive: true });
+
+  var reduzido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduzido || !("IntersectionObserver" in window)) return;
+
+  var alvos = document.querySelectorAll(
+    ".folha .rotulo, .folha .titulo, .folha .secao-desc, .camada, .manifesto-jp, .citacao, .citacao-fonte, .manifesto-texto"
+  );
+  var io = new IntersectionObserver(function (entradas) {
+    entradas.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+
+  var i = 0;
+  alvos.forEach(function (el) {
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
+    el.classList.add("reveal");
+    el.style.setProperty("--d", (i++ % 4) * 70 + "ms");
+    io.observe(el);
+  });
+})();
