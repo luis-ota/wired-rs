@@ -18,7 +18,7 @@ concurrency:
 jobs:
   image:
     name: Build image
-    runs-on: ubuntu-latest
+    runs-on: instabox-medium
     steps:
       - uses: actions/checkout@v4
 
@@ -43,7 +43,7 @@ jobs:
   deploy:
     name: Deploy production (Coolify)
     needs: image
-    runs-on: ubuntu-latest
+    runs-on: instabox-medium
     steps:
       - name: Trigger Coolify deploy
         env:
